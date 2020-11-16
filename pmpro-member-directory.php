@@ -91,22 +91,18 @@ add_action( 'pmpro_show_user_profile', 'pmpromd_show_extra_profile_fields' );
 
 function pmpromd_save_extra_profile_fields( $user_id )
 {
+	if ( !current_user_can( 'edit_user', $user_id ) )
+	return false;
 
-	global $pmpro_pages;
+global $pmpro_pages;
 
-	if ( !current_user_can( 'edit_user', $user_id ) ) {
-		return false;
-	}
-		
+if ( is_page( $pmpro_pages['member_profile_edit'] ) && ! isset( $_REQUEST['submit'] ) ) {
+	return;
+}
 
-	if ( is_page( $pmpro_pages['member_profile_edit'] ) ) {
-		if ( ! isset( $_REQUEST['submit'] ) ) {
-			return false;
-		}
-	}
+$hide_from_dir = isset( $_REQUEST['hide_directory'] ) ? sanitize_text_field( $_REQUEST['hide_directory'] ) : '';
 
-	$hide_from_dir = isset( $_REQUEST['hide_directory'] ) ? sanitize_text_field( $_REQUEST['hide_directory'] ) : null;
-	update_user_meta( $user_id, 'pmpromd_hide_directory', $hide_from_dir );
+update_user_meta( $user_id, 'pmpromd_hide_directory', $hide_from_dir );
 }
 add_action( 'personal_options_update', 'pmpromd_save_extra_profile_fields' );
 add_action( 'edit_user_profile_update', 'pmpromd_save_extra_profile_fields' );
@@ -132,13 +128,13 @@ function pmpromd_display_file_field($meta_field) {
 }
 
 /**
-	 * Filters the name to display for the member in the directory or profile page.
-	 *
-	 * @since 1.0
-	 *
-	 * @param object $user The WP_User object for the profile.
-	 * @param string $display_name The name to display for the user.
-	 */
+ * Filters the name to display for the member in the directory or profile page.
+ *
+ * @since 1.0
+ *
+ * @param object $user The WP_User object for the profile.
+ * @param string $display_name The name to display for the user.
+ */
 function pmpro_member_directory_get_member_display_name( $user ) {
 	$display_name = apply_filters( 'pmpro_member_directory_display_name', $user->display_name, $user );
 	return $display_name;
