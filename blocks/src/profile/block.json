@@ -2,13 +2,5 @@
     "$schema": "https://schemas.wp.org/trunk/block.json",
     "apiVersion": 2,
     "name": "pmpro-member-directory/profile",
-    "version": "1.0.0",
-    "title": "Member Profile",
-    "category": "pmpro",
-    "icon": "smile",
-    "description": "Redirect users to Stripe to manage their purchases.",
-    "supports": {
-        "html": false
-    },
-    "textdomain": "pmpro-member-directory"
+    "version": "1.0.0"
 }

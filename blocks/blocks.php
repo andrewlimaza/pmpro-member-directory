@@ -3,6 +3,7 @@
 // Register block types
 function pmpromd_register_blocks() {
 
+	// Register Member Directory block.
 	register_block_type(
 		'pmpro-member-directory/directory',
 		array(
@@ -17,6 +18,7 @@ function pmpromd_register_blocks() {
 		array( 'wp-i18n', 'wp-element', 'wp-blocks', 'wp-components', 'wp-api', 'wp-editor', 'pmpro_admin' )
 	);
 
+	// Register Member Profile block.
 	register_block_type(
 		'pmpro-member-directory/profile',
 		array(
