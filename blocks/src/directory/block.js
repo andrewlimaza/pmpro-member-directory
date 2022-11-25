@@ -1,14 +1,13 @@
-import ShowExtraFields from '../components/extra-fields/extra-fields.js';
-import DivLayout from './templates/div.js';
-import TableLayout from './templates/table.js';
-import Col2 from './templates/2col.js';
-import Col3 from './templates/3col.js';
-import Col4 from './templates/4col.js';
+import DivLayout from '../../assets/components/templates/div.js';
+import TableLayout from '../../assets/components/templates/table.js';
+import Col2 from '../../assets/components/templates/2col.js';
+import Col3 from '../../assets/components/templates/3col.js';
+import Col4 from '../../assets/components/templates/4col.js';
 
 const { __ } = wp.i18n;
 
 const {
-  registerBlockType,
+  registerBlockType
 } = wp.blocks;
 
 const {
@@ -162,7 +161,8 @@ export default registerBlockType(
                   help={ __('List of level IDs that allow profiles. Default: All', 'pmpro-member-directory') }
                   value={ levels }
                   onChange={ levels => { setAttributes( { levels } ) } }
-                  options={ all_levels }
+                  options={all_levels}
+                  id="pmpro_member_directory_levels_select"
                 />
 
                 <SelectControl 

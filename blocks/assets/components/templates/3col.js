@@ -1,6 +1,6 @@
 import { Component } from 'react';
-import ShowExtraFields from '../../components/extra-fields/extra-fields';
-import dummy_data from '../../components/dummy-data/dummy-data';
+import ShowExtraFields from '../../../assets/components/extra-fields/extra-fields';
+import dummy_data from '../../../assets/components/dummy-data/dummy-data';
 
 const { __ } = wp.i18n;
 

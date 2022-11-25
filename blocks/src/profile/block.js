@@ -1,7 +1,7 @@
-import ShowExtraFields from "../components/extra-fields/extra-fields";
-import dummy_data from "../components/dummy-data/dummy-data";
-
-const { __ } = wp.i18n;
+import dummy_data from "../../assets/components/dummy-data/dummy-data";
+import ShowExtraFields from "../../assets/components/extra-fields/extra-fields";
+import { __ } from "@wordpress/i18n";
+import metadata from './block.json';
 
 const {
   registerBlockType,
@@ -9,7 +9,6 @@ const {
 
 const {
   PanelBody,
-  SelectControl,
   TextControl,
   TextareaControl,
   CheckboxControl,
@@ -20,7 +19,7 @@ const {
 } = wp.editor;
 
 export default registerBlockType(
-    'pmpro-member-directory/profile',
+  'pmpro-member-directory/profile',
     {
         title: __( 'Member Profile', 'pmpro-member-directory' ),
         description: __( 'Display a profile for a Member.', 'pmpro-member-directory' ),
